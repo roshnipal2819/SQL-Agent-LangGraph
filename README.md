@@ -4,7 +4,7 @@ This project provides an interface for a restaurant order system developed in Py
 
 ## Setup & Installation
 
-1. Install Python 3.12.8 and necessary packages: Jinja2, PyYAML, SQLAlchemy, ipython, numpy, pip, requests, six, and tornado. 
+1. Install Python 3.12.8 and necessary packages. 
 
 2. Set up environmental variables in a `.env` file, specifying the `DATABASE_URL`.
 
