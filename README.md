@@ -31,7 +31,3 @@ The database includes:
 - Interaction: Users can make requests, e.g., placing an order for a food item.
 - Visualization: Users can visualize their orders within Jupyter Notebook.
 - Order History: Users can retrieve and view their past orders.
-
-## Contributions & License
-
-Contributions are welcome. This project is licensed under the MIT License. See the `LICENSE.md` file for details.
