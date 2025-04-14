@@ -6,13 +6,13 @@ This project provides an interface for a restaurant order system developed in Py
 
 1. Install Python 3.12.8 and necessary packages. 
 
-2. Set up environmental variables in a `.env` file, specifying the `DATABASE_URL`.
+2. Set up environmental variables in a .env file, specifying the DATABASE_URL.
 
 3. Clone or download the repository.
 
 ## Usage
 
-Open the `sql.ipynb` file in Jupyter Notebook and run it:
+Open the sql.ipynb file in Jupyter Notebook and run it:
 
 ```shell
 jupyter notebook sql.ipynb
