@@ -1,4 +1,4 @@
-# Project Title
+# Order Management- Langchain, SqlAlchemy
 
 This project provides an interface for a restaurant order system developed in Python 3.12.8, using SQLAlchemy ORM and SQLite as the database. The system is composed of three key tables - Users, Food, and Orders. 
 
