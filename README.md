@@ -89,17 +89,3 @@ The flowchart below illustrates the process of handling a user request, converti
 5. **end_max_iterations**: Ensures the system doesn’t get stuck in an infinite loop.
 6. The system then **ends** after outputting a response.
 ---
-
-### 📁 Project Structure
-
-```
-order-management-system/
-│
-├── sql.ipynb                 # Main notebook interface
-├── models.py                 # SQLAlchemy models
-├── utils.py                  # Helper functions
-├── .env                      # Environment variables (DATABASE_URL)
-├── requirements.txt          # Python dependencies
-├── snap.png                  # System workflow diagram
-└── README.md                 # This file
-```
