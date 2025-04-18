@@ -9,36 +9,26 @@ This project is a restaurant order management interface built using **Python 3.1
 
 Follow these steps to set up the environment and run the project:
 
-1. **Install Python 3.12.8**  
-   Download and install from the official [Python website](https://www.python.org/downloads/release).
-
-2. **Create a virtual environment** (recommended):
-
+1. **Install Python 3.10**  
+2. **Create a virtual environment**:
    ```bash
    python -m venv venv
-   source venv/bin/activate   # On Windows: venv\Scripts\activate
+   source venv/bin/activate  
    ```
-
 3. **Install dependencies**:
-
    ```bash
    pip install -r requirements.txt
    ```
-
 4. **Set up environmental variables**:  
-   Create a `.env` file in the root directory with the following content:
-
+   Create a .env file in the root directory with the following content:
    ```env
    DATABASE_URL=sqlite:///orders.db
    ```
-
 5. **Clone or download the repository**:
-
    ```bash
    git clone https://github.com/your-username/order-management-system.git
    cd order-management-system
    ```
-
 ---
 
 ### 📊 Database Schema
@@ -85,7 +75,7 @@ The flowchart below illustrates the process of handling a user request, converti
      - **convert_to_sql** → **execute_sql** → **generate_human_readable_answer**
    - If irrelevant or ambiguous:
      - **regenerate_query** attempts to fix the query.
-     - If it fails after `max_iterations`, fallback to **generate_funny_response**.
+     - If it fails after max_iterations, fallback to **generate_funny_response**.
 5. **end_max_iterations**: Ensures the system doesn’t get stuck in an infinite loop.
 6. The system then **ends** after outputting a response.
 ---
