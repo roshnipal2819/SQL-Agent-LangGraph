@@ -1,33 +1,105 @@
-# Order Management- Langchain, SqlAlchemy
 
-This project provides an interface for a restaurant order system developed in Python 3.12.8, using SQLAlchemy ORM and SQLite as the database. The system is composed of three key tables - Users, Food, and Orders. 
+### 🍽️ Order Management System - Langchain, SQLAlchemy, SQLite
 
-## Setup & Installation
+This project is a restaurant order management interface built using **Python 3.12.8**, **SQLAlchemy ORM**, and **SQLite** as the database engine. It provides a simplified backend for placing and tracking orders, retrieving user history, and interacting through a natural language interface powered by Langchain.
 
-1. Install Python 3.12.8 and necessary packages. 
+---
 
-2. Set up environmental variables in a .env file, specifying the DATABASE_URL.
+### 📦 Setup & Installation
 
-3. Clone or download the repository.
+Follow these steps to set up the environment and run the project:
 
-## Usage
+1. **Install Python 3.12.8**  
+   Download and install from the official [Python website](https://www.python.org/downloads/release).
 
-Open the sql.ipynb file in Jupyter Notebook and run it:
+2. **Create a virtual environment** (recommended):
 
-```shell
-jupyter notebook sql.ipynb
+   ```bash
+   python -m venv venv
+   source venv/bin/activate   # On Windows: venv\Scripts\activate
+   ```
+
+3. **Install dependencies**:
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. **Set up environmental variables**:  
+   Create a `.env` file in the root directory with the following content:
+
+   ```env
+   DATABASE_URL=sqlite:///orders.db
+   ```
+
+5. **Clone or download the repository**:
+
+   ```bash
+   git clone https://github.com/your-username/order-management-system.git
+   cd order-management-system
+   ```
+
+---
+
+### 📊 Database Schema
+
+The SQLite database includes three main tables:
+
+- **Users**  
+  Stores user information and is linked to the Orders table.
+
+- **Food**  
+  Contains the available food menu items and is also connected to Orders.
+
+- **Orders**  
+  Records each order placed, linking both user and food item with timestamps and quantities.
+
+All relationships are handled using SQLAlchemy's ORM layer, allowing you to query and update using Pythonic syntax.
+
+---
+### 🧠 Features
+
+- **Natural Language Query Support**  
+  Users can ask questions like _"What did I order yesterday?"_ or _"Order 2 pizzas"_ using Langchain's query-to-SQL conversion logic.
+
+- **Visualization**  
+  Order history and details can be visualized within Jupyter via simple queries.
+
+- **Regeneration Loop**  
+  If a query is malformed or not relevant, the system attempts to regenerate a better version or provide a humorous response.
+
+---
+
+### 🧬 System Flowchart
+
+The flowchart below illustrates the process of handling a user request, converting it into an SQL query, and returning a response:
+
+![System Workflow](snap.png)
+
+#### 🔁 Flowchart Description
+1. **Start**: User sends a query or request.
+2. **get_current_user**: The system retrieves the current user context.
+3. **check_relevance**: It checks whether the request is relevant to the order system.
+4. Based on relevance:
+   - If relevant:
+     - **convert_to_sql** → **execute_sql** → **generate_human_readable_answer**
+   - If irrelevant or ambiguous:
+     - **regenerate_query** attempts to fix the query.
+     - If it fails after `max_iterations`, fallback to **generate_funny_response**.
+5. **end_max_iterations**: Ensures the system doesn’t get stuck in an infinite loop.
+6. The system then **ends** after outputting a response.
+---
+
+### 📁 Project Structure
+
 ```
-
-## Database Schema
-
-The database includes:
-
-1. **Users**: Holds user data and a relationship with the Orders table.
-2. **Food**: Represents food items and carries a relationship with the Orders table.
-3. **Orders**: Contains order details and has relationships with the Users and Food tables.
-
-## Features
-
-- Interaction: Users can make requests, e.g., placing an order for a food item.
-- Visualization: Users can visualize their orders within Jupyter Notebook.
-- Order History: Users can retrieve and view their past orders.
+order-management-system/
+│
+├── sql.ipynb                 # Main notebook interface
+├── models.py                 # SQLAlchemy models
+├── utils.py                  # Helper functions
+├── .env                      # Environment variables (DATABASE_URL)
+├── requirements.txt          # Python dependencies
+├── snap.png                  # System workflow diagram
+└── README.md                 # This file
+```
